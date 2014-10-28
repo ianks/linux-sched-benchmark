@@ -1,7 +1,7 @@
 'use strict';
 
 var args = process.argv.slice(2);
-var outfile = 'rusage.json';
+var outfile = args[0] + '/getrusage_stats.json';
 
 var fs = require('fs'),
     getrusage = require('rusage').getrusage,
@@ -10,7 +10,7 @@ var fs = require('fs'),
 
 for(var i = 0; i < +args[1]; i++) {
   // Fork a bunch of processes
-  var cmd = 'node ' + args[0];
+  var cmd = 'node ' + args[0] + '/run.js';
   var ls = child.exec(cmd, function (error, stdout, stderr) {
     if (error) {
       console.log(error.stack);
