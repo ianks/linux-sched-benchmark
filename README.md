@@ -6,8 +6,8 @@ Scheduler Benchmark
   2. `npm install`
 
 ### Run it:
-  1. Make a program which is either IO bound, CPU bound, or both.
-    i.e. fib.js
+  1. Make a program which is either IO bound, CPU bound, or both. Put this program in procs/PROGRAM_NAME/run.js
+    i.e. procs/fib/run.js
   2. In your program, output the results of `getrusage`
     var args = process.argv.slice(2);
     var RUSAGE_SELF = require('rusage').RUSAGE_SELF;
