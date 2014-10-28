@@ -1,0 +1,16 @@
+{
+  "name": "scheduler-benchmark",
+  "version": "0.0.0",
+  "description": "Tool to test Linux schedulers under different conditions.",
+  "main": "main.js",
+  "dependencies": {
+    "async": "^0.9.0",
+    "rusage": "git://github.com/bnoordhuis/node-rusage"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
