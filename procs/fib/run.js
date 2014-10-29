@@ -1,5 +1,7 @@
 'use strict';
 
+require('locus');
+
 var RUSAGE_SELF = require('rusage').RUSAGE_SELF;
 var getrusage = require('rusage').getrusage;
 
@@ -14,5 +16,6 @@ function fib(x) {
 }
 
 fib(40);
+
 var ru = getrusage(RUSAGE_SELF);
-console.log(ru);
+console.log(JSON.stringify(ru));
