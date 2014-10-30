@@ -21,6 +21,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sched.h>
 
 /* Local Defines */
 #define MAXFILENAMELENGTH 80
@@ -39,7 +40,7 @@ int main(int argc, char* argv[]){
     char outputFilenameBase[MAXFILENAMELENGTH];
 
     ssize_t transfersize = 0;
-    ssize_t blocksize = 0; 
+    ssize_t blocksize = 0;
     char* transferBuffer = NULL;
     ssize_t buffersize;
 
