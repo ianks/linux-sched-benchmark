@@ -1,2 +1,7 @@
 getrusage_stats.json
 node_modules/*
+*.o
+pi-sched
+pi
+rw
+rwinput
