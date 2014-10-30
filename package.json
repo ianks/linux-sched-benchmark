@@ -5,8 +5,9 @@
   "main": "main.js",
   "dependencies": {
     "async": "^0.9.0",
-    "rusage": "git://github.com/bnoordhuis/node-rusage",
-    "locus": "git://github.com/alidavut/locus"
+    "json-2-csv": "^1.0.6",
+    "locus": "git://github.com/alidavut/locus",
+    "rusage": "git://github.com/bnoordhuis/node-rusage"
   },
   "devDependencies": {},
   "scripts": {
