@@ -11,11 +11,13 @@ var fs = require('fs'),
 var output_arr = [];
 var count = 0;
 var num_processes = +args[1];
+var folder = args[0];
+var sched = args[2];
 
 for(var i = 0; i < num_processes; i++) {
   // Fork a bunch of processes
-  var cmd = 'node ' + args[0] + '/run.js';
-  var ls = child.exec(cmd, function (error, stdout, stderr) {
+  var cmd = 'node ' + folder + '/run.js ' + sched;
+  var proc = child.exec(cmd, function (error, stdout, stderr) {
     if (count == num_processes)
 
     count += 1;
@@ -38,7 +40,7 @@ for(var i = 0; i < num_processes; i++) {
 
 // Write to a file
 function record_results(){
-  fs.appendFile(outfile, JSON.stringify(output_arr), function(err) {
+  fs.writeFile(outfile, JSON.stringify(output_arr), function(err) {
     if(err) {
       console.log(err);
     } else {

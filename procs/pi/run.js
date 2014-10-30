@@ -10,9 +10,10 @@ var iterations = 100000000;
 var bytesToCopy = 102400;
 var blocksize = 1024;
 
-var cmd = './pi-sched 100000000 ' + scheduler;
+var cmd = './procs/pi/pi-sched 100000000 ' + scheduler;
 
-var ls = child.exec(cmd, function (error, stdout, stderr) {
+var proc = child.exec(cmd, function (error, stdout, stderr) {
   var ru = getrusage(RUSAGE_CHILDREN);
+  ru['pid'] = proc.pid;
   console.log(JSON.stringify(ru));
 });
