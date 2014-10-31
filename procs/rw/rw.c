@@ -274,7 +274,5 @@ int main(int argc, char* argv[]){
     exit(EXIT_FAILURE);
   }
 
-  cleanup_files(outputFilename);
-
   return EXIT_SUCCESS;
 }
