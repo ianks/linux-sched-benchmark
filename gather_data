@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ "$1" == "cpu" ]; then
+  # warm up
+  nodenv sudo node main.js procs/pi 15  SCHED_OTHER
+
+  # bench it
+  nodenv sudo node main.js procs/pi 5   SCHED_OTHER
+  nodenv sudo node main.js procs/pi 50  SCHED_OTHER
+  nodenv sudo node main.js procs/pi 150 SCHED_OTHER
+
+  nodenv sudo node main.js procs/pi 5   SCHED_RR
+  nodenv sudo node main.js procs/pi 50  SCHED_RR
+  nodenv sudo node main.js procs/pi 150 SCHED_RR
+
+  nodenv sudo node main.js procs/pi 5   SCHED_FIFO
+  nodenv sudo node main.js procs/pi 50  SCHED_FIFO
+  nodenv sudo node main.js procs/pi 150 SCHED_FIFO
+fi
+
+if [ "$1" == "io" ]; then
+  # warm up
+  nodenv sudo node main.js procs/rw 15   SCHED_OTHER
+
+  # bench it
+  nodenv sudo node main.js procs/rw 5   SCHED_OTHER
+  nodenv sudo node main.js procs/rw 50  SCHED_OTHER
+  nodenv sudo node main.js procs/rw 150 SCHED_OTHER
+
+  nodenv sudo node main.js procs/rw 5   SCHED_RR
+  nodenv sudo node main.js procs/rw 50  SCHED_RR
+  nodenv sudo node main.js procs/rw 150 SCHED_RR
+
+  nodenv sudo node main.js procs/rw 5   SCHED_FIFO
+  nodenv sudo node main.js procs/rw 50  SCHED_FIFO
+  nodenv sudo node main.js procs/rw 150 SCHED_FIFO
+fi
