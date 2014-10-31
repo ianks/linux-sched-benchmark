@@ -74,10 +74,10 @@ int set_scheduler_policy(int argc, char* argv[])
   return 0;
 }
 
-int cleanup_files(char* input_file, char* output_file)
+int cleanup_files(char* input_file)
 {
   int status;
-  status = remove(input_file) | remove(output_file);
+  status = remove(input_file);
 
   if(status == 0)
     printf("Files cleanup up successfully\n");
@@ -90,7 +90,6 @@ int cleanup_files(char* input_file, char* output_file)
 }
 
 int main(int argc, char* argv[]){
-
   int rv;
   int inputFD;
   int outputFD;
@@ -275,7 +274,7 @@ int main(int argc, char* argv[]){
     exit(EXIT_FAILURE);
   }
 
-  cleanup_files(inputFilename, outputFilename);
+  cleanup_files(outputFilename);
 
   return EXIT_SUCCESS;
 }
