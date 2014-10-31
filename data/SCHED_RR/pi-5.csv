@@ -1,6 +1,0 @@
-ru_utime.sec,ru_utime.usec,ru_stime.sec,ru_stime.usec,ru_maxrss,ru_ixrss,ru_idrss,ru_isrss,ru_minflt,ru_majflt,ru_nswap,ru_inblock,ru_oublock,ru_msgsnd,ru_msgrcv,ru_nsignals,ru_nvcsw,ru_nivcsw,pid
-4,442938,0,4790,4356,0,0,0,433,0,0,0,0,0,0,0,5,8,9915
-4,514965,0,821,4356,0,0,0,435,0,0,0,0,0,0,0,4,7,9917
-4,443318,0,899,4352,0,0,0,436,0,0,0,0,0,0,0,4,8,9913
-4,355596,0,972,4356,0,0,0,434,0,0,0,0,0,0,0,4,24,9918
-4,180939,0,783,4356,0,0,0,435,0,0,0,0,0,0,0,4,25,9919
