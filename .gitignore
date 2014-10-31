@@ -3,5 +3,6 @@ node_modules/*
 *.o
 pi-sched
 pi
-rw
+procs/rw/rw
+procs/rw/rwinput-*
 rwinput
