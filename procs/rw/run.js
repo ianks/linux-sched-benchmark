@@ -17,7 +17,7 @@ var rwinput = 'procs/rw/rwinput-' + rand;
 
 var cmd = './procs/rw/rw 10240 1024 ' + rwinput + ' procs/rw/rwoutput ' + scheduler;
 
-randomSource.getRandomBytes(1000000, function (buff) {
+randomSource.getRandomBytes(100000, function (buff) {
   fs.writeFile(rwinput, buff, function(err) {
     if(err) throw err;
 
@@ -30,40 +30,6 @@ randomSource.getRandomBytes(1000000, function (buff) {
       fs.unlink(rwinput, function(err) {
         if (err) throw err
       });
-
-      glob("procs/rw/**", function (er, files){
-        files.forEach(function(file){
-          if (file.indexOf("rwoutput") > -1) {
-            fs.unlink(file, function(err) {
-              if (err) throw err
-            });
-          }
-        });
-      });
     });
   });
 });
-//
-// var cmd = './procs/rw/rw 10240 1024 ' + rwinput + ' procs/rw/rwoutput ' + scheduler;
-//
-// var proc = child.exec(cmd, function (error, stdout, stderr) {
-//
-//   var ru = getrusage(RUSAGE_CHILDREN);
-//   ru['pid'] = proc.pid;
-//
-//   console.log(JSON.stringify(ru));
-//
-//   fs.unlink(rwinput, function(err) {
-//     if (err) throw err
-//   });
-//
-//   glob("procs/rw/**", function (er, files){
-//     files.forEach(function(file){
-//       if (file.indexOf("rwoutput") > -1) {
-//         fs.unlink(file, function(err) {
-//           if (err) throw err
-//         });
-//       }
-//     });
-//   });
-// });

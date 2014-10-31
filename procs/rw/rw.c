@@ -74,10 +74,10 @@ int set_scheduler_policy(int argc, char* argv[])
   return 0;
 }
 
-int cleanup_files(char* input_file)
+int cleanup_files(char* output_file)
 {
   int status;
-  status = remove(input_file);
+  status = remove(output_file);
 
   if(status == 0)
     printf("Files cleanup up successfully\n");
@@ -273,6 +273,8 @@ int main(int argc, char* argv[]){
     perror("Failed to close input file");
     exit(EXIT_FAILURE);
   }
+
+  cleanup_files(outputFilename);
 
   return EXIT_SUCCESS;
 }
