@@ -15,7 +15,7 @@ var rwinput = 'procs/rw/rwinput-' + process.pid;
 var cmd = './procs/rw/rw 10240 1024 ' + rwinput + ' procs/rw/rwoutput ' + scheduler;
 var randomSource = RandBytes.urandom.getInstance();
 
-randomSource.getRandomBytes(100000, function (buff) {
+randomSource.getRandomBytes(400000, function (buff) {
   fs.writeFile(rwinput, buff, function(err) {
     if(err) throw err;
 
