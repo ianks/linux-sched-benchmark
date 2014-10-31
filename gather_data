@@ -1,37 +1,21 @@
 #!/bin/bash
 
 if [ "$1" == "cpu" ]; then
-  # warm up
-  nodenv sudo node main.js procs/pi 15  SCHED_OTHER
-
-  # bench it
-  nodenv sudo node main.js procs/pi 5   SCHED_OTHER
-  nodenv sudo node main.js procs/pi 50  SCHED_OTHER
-  nodenv sudo node main.js procs/pi 150 SCHED_OTHER
-
-  nodenv sudo node main.js procs/pi 5   SCHED_RR
-  nodenv sudo node main.js procs/pi 50  SCHED_RR
-  nodenv sudo node main.js procs/pi 150 SCHED_RR
-
-  nodenv sudo node main.js procs/pi 5   SCHED_FIFO
-  nodenv sudo node main.js procs/pi 50  SCHED_FIFO
-  nodenv sudo node main.js procs/pi 150 SCHED_FIFO
+  for num in 5 50 200
+  do
+    for scheduler in "SCHED_OTHER" "SCHED_RR" "SCHED_FIFO"
+    do
+      nodenv sudo node main.js procs/pi $num $scheduler
+    done
+  done
 fi
 
 if [ "$1" == "io" ]; then
-  # warm up
-  nodenv sudo node main.js procs/rw 15   SCHED_OTHER
-
-  # bench it
-  nodenv sudo node main.js procs/rw 5   SCHED_OTHER
-  nodenv sudo node main.js procs/rw 50  SCHED_OTHER
-  nodenv sudo node main.js procs/rw 150 SCHED_OTHER
-
-  nodenv sudo node main.js procs/rw 5   SCHED_RR
-  nodenv sudo node main.js procs/rw 50  SCHED_RR
-  nodenv sudo node main.js procs/rw 150 SCHED_RR
-
-  nodenv sudo node main.js procs/rw 5   SCHED_FIFO
-  nodenv sudo node main.js procs/rw 50  SCHED_FIFO
-  nodenv sudo node main.js procs/rw 150 SCHED_FIFO
+  for num in 5 50 200
+  do
+    for scheduler in "SCHED_OTHER" "SCHED_RR" "SCHED_FIFO"
+    do
+      nodenv sudo node main.js procs/rw $num $scheduler
+    done
+  done
 fi
