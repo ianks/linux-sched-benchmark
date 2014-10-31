@@ -9,6 +9,7 @@
     "json-2-csv": "^1.0.6",
     "locus": "git://github.com/alidavut/locus",
     "lodash": "^2.4.1",
+    "process": "^0.9.0",
     "randbytes": "0.0.1",
     "rusage": "git://github.com/bnoordhuis/node-rusage"
   },
