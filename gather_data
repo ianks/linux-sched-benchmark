@@ -11,7 +11,7 @@ if [ "$1" == "cpu" ]; then
 fi
 
 if [ "$1" == "io" ]; then
-  for num in 5 50 200
+  for num in 200
   do
     for scheduler in "SCHED_OTHER" "SCHED_RR" "SCHED_FIFO"
     do
