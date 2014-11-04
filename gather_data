@@ -11,11 +11,21 @@ if [ "$1" == "cpu" ]; then
 fi
 
 if [ "$1" == "io" ]; then
-  for num in 200
+  for num in 5 50 200
   do
     for scheduler in "SCHED_OTHER" "SCHED_RR" "SCHED_FIFO"
     do
       nodenv sudo node main.js procs/rw $num $scheduler
+    done
+  done
+fi
+
+if [ "$1" == "mixed" ]; then
+  for num in 5 50 200
+  do
+    for scheduler in "SCHED_OTHER" "SCHED_RR" "SCHED_FIFO"
+    do
+      nodenv sudo node main.js procs/mixed $num $scheduler
     done
   done
 fi
